@@ -1,0 +1,76 @@
+<template>
+  <div id="app">
+    <Header v-bind:title="title" v-on:changeTitle="updateTitle($event)"/>
+    <p>{{title}}</p>
+  </div>
+</template>
+
+<script>
+import Header from '../components/Header'
+import {bus} from '../index'
+
+  export default {
+    name: 'app',
+    components:{
+      Header,
+    },
+    data(){
+      return {
+        title:"title from app.vue"
+      }
+    },
+    methods: {
+      updateTitle($event){
+        this.title=$event;
+      }
+    },
+    created(){
+      bus.$on("titleChanged",(data)=>{
+        this.title=data;
+      })
+    }
+
+  }
+</script>
+
+
+<style>
+  
+</style>
+
+<style scoped>
+  #app {
+    text-align: center;
+  }
+
+  #app h1 {
+    color: #2c3e50;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  .banner {
+    height: 200px;
+    background-color: #f6f6f6;
+    padding: 50px 10px;
+  }
+
+  .bottom {
+    padding: 80px 10px;
+    font-size: 24px;
+    font-weight: 300;
+  }
+
+  .fade {
+    font-size: 14px;
+  }
+
+  .logo {
+    animation: spin 4s 1s infinite linear
+  }
+
+  @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+  }
+</style>
