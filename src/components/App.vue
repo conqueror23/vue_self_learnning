@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div v-theme:column="'wide'" id="app">
     <HHeader v-bind:title="title" v-on:changeTitle="updateTitle($event)" />
     <p>{{title}}</p>
     <h2>Method 1</h2>
@@ -12,6 +12,7 @@
     <h2>Method 2</h2>
     <component is="form-one"></component>
     <addBlog/>
+    <showBlog></showBlog>
   </div>
 </template>
 
@@ -20,13 +21,15 @@ import HHeader from "../components/Header";
 import { bus } from "../index";
 import formOne from "../components/formOne";
 import formTwo from "../components/formTwo";
-import addBlog from '../components/addBLog'
+import addBlog from '../components/addBLog';
+import showBlog from '../components/showBlog'
 
 export default {
   name: "app",
   components: {
     HHeader,
     addBlog,
+    showBlog,
     'form-one': formOne,
     'form-two': formTwo
   },

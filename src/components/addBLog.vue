@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form >
+        <form v-if="!submitted">
         <label >title</label>
         <input type="text" v-model.lazy="blog.title">
         <label >content</label>
@@ -8,6 +8,9 @@
 
         <button v-on:click.prevent='post'>Post BLog</button>
         </form>
+        <div v-if="submitted">
+            <h3>You have post </h3>
+        </div>
 
         <div>
             <h2>blog preview</h2>
@@ -20,6 +23,7 @@
 </template>
 
 <script>
+import { constants } from 'crypto';
 export default {
 
     data(){
@@ -27,19 +31,22 @@ export default {
             blog:{
                 title:"",
                 content:"",
-
-            }
+            },
+               submitted:false,
         }
     },
     methods:{
         post:function(){
+            // vue-resource http post
             this.$http.post('https://jsonplaceholder.typicode.com/posts',{
                 title:this.blog.title,
                 body:this.blog.content,
             }).then(res=>{
                 console.log(res)
+                this.submitted=true;
             })
 
+            
         }
     }
 
