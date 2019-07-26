@@ -5,7 +5,7 @@
     </div>
     <div slot="form-controls">
       <h4>form 1 contorls</h4>
-      <button v-on:click="submit">Submit</button>
+      <button >Submit</button>
     </div>
     <div slot="form-fields">
       <input type="text" name="name" placeholder="name" required />
@@ -15,7 +15,12 @@
 </template>
 
 <script>
-export default {};
+import formHelper from '../components/formHelper'
+export default {
+  components:{
+    formHelper,
+  }
+};
 </script>
 
 <style>

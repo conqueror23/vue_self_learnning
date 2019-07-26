@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header v-bind:title="title" v-on:changeTitle="updateTitle($event)" />
+    <HHeader v-bind:title="title" v-on:changeTitle="updateTitle($event)" />
     <p>{{title}}</p>
     <h2>Method 1</h2>
     <div class="selectForm" v-if="formNo === 1">
@@ -10,14 +10,13 @@
       <form-two />
     </div>
     <h2>Method 2</h2>
-    <component :is="form-one"></component>
+    <component is="form-one"></component>
     <addBlog/>
   </div>
 </template>
 
 <script>
-import Header from "../components/Header";
-import formHelper from "../components/formHelper";
+import HHeader from "../components/Header";
 import { bus } from "../index";
 import formOne from "../components/formOne";
 import formTwo from "../components/formTwo";
@@ -26,11 +25,10 @@ import addBlog from '../components/addBLog'
 export default {
   name: "app",
   components: {
-    Header,
+    HHeader,
     addBlog,
-    formHelper,
-    "form-one": formOne,
-    "form-two": formTwo
+    'form-one': formOne,
+    'form-two': formTwo
   },
   data() {
     return {

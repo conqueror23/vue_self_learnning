@@ -9,13 +9,18 @@
     </div>
     <div slot="form-controls">
       <h4>form 2 contorls</h4>
-      <button v-on:click="submit">Submit</button>
+      <button>Submit</button>
     </div>
   </formHelper>
 </template>
 
 <script>
-export default {};
+import formHelper from '../components/formHelper'
+export default {
+  components:{
+    formHelper,
+  }
+};
 </script>
 
 <style>

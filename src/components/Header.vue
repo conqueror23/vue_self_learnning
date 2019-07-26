@@ -6,12 +6,8 @@
 import {bus} from '../index'
 
 export default {
-name:'header',
-props:{
-    title:{
-        type:String,
-    }
-},
+name:'HHeader',
+
 data(){
     return {
         title:'Vue nija',

@@ -1,12 +1,12 @@
 <template>
     <div>
-        <form action="">
+        <form >
         <label >title</label>
         <input type="text" v-model.lazy="blog.title">
         <label >content</label>
         <textarea v-model.lazy="blog.content" cols="30" rows="10"></textarea>
 
-        <button v-on:click='post'></button>
+        <button v-on:click.prevent='post'>Post BLog</button>
         </form>
 
         <div>
@@ -33,6 +33,12 @@ export default {
     },
     methods:{
         post:function(){
+            this.$http.post('https://jsonplaceholder.typicode.com/posts',{
+                title:this.blog.title,
+                body:this.blog.content,
+            }).then(res=>{
+                console.log(res)
+            })
 
         }
     }
