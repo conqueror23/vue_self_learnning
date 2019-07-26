@@ -22,7 +22,8 @@ data(){
         this.title='vue wizzrds';
         bus.$emit('titleChanged','vue wizard');
     }
-}
+},
+
 }
 </script>
 
