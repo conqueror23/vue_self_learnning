@@ -11,6 +11,7 @@
     </div>
     <h2>Method 2</h2>
     <component :is="form-one"></component>
+    <addBlog/>
   </div>
 </template>
 
@@ -20,11 +21,13 @@ import formHelper from "../components/formHelper";
 import { bus } from "../index";
 import formOne from "../components/formOne";
 import formTwo from "../components/formTwo";
+import addBlog from '../components/addBLog'
 
 export default {
   name: "app",
   components: {
     Header,
+    addBlog,
     formHelper,
     "form-one": formOne,
     "form-two": formTwo
