@@ -1,19 +1,12 @@
 <template>
-  <div v-theme:column="'wide'" id="app">
-    <HHeader v-bind:title="title" v-on:changeTitle="updateTitle($event)" />
-    <p>{{title}}</p>
-    <h2>Method 1</h2>
-    <div class="selectForm" v-if="formNo === 1">
-      <form-one />
-    </div>
-    <div class="seletForm" v-else>
-      <form-two />
-    </div>
-    <h2>Method 2</h2>
-    <component is="form-one"></component>
-    <addBlog/>
-    <showBlog></showBlog>
-  </div>
+<div>
+<newHeader />
+<router-view>
+
+</router-view>
+  
+
+</div>
 </template>
 
 <script>
@@ -24,12 +17,15 @@ import formTwo from "../components/formTwo";
 import addBlog from '../components/addBLog';
 import showBlog from '../components/showBlog'
 
+import newHeader from '../components/newheader'
+
 export default {
   name: "app",
   components: {
     HHeader,
     addBlog,
     showBlog,
+    newHeader,
     'form-one': formOne,
     'form-two': formTwo
   },

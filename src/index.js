@@ -1,7 +1,16 @@
 import Vue from 'vue'
 import App from './components/App.vue'
 import VueResource from 'vue-resource'
-Vue.use(VueResource)
+import VueRouter from 'vue-router'
+import routes from './routes/routes'
+Vue.use(VueResource);
+Vue.use(VueRouter);
+// routers
+const router = new VueRouter({
+  routes:routes,
+  // remove hash address change to history mode 
+  // mode:'history' 
+});
 
 Vue.config.productionTip = false
 
@@ -35,5 +44,6 @@ export const bus = new Vue();
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
+  router:router
 })
